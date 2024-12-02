@@ -44,7 +44,8 @@ dropdownBtns.forEach(btn => {
 });
 
 // Gestion de l'affichage des sections du contenu
-const sections = ['planning-section', 'presentation-section', 'mlsd-section', 'amsd-section', 'terms-section', 'plan-section'];
+const sections = ['planning-section', 'calendar-section', 'presentation-section', 'mlsd-section', 'amsd-section', 'terms-section', 'plan-section'];
+
 
 function showSection(sectionId) {
     sections.forEach(id => {
@@ -61,6 +62,12 @@ document.getElementById('planning-link').addEventListener('click', function(even
     event.preventDefault();
     showSection('planning-section');
 });
+
+document.getElementById('calendar-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    showSection('calendar-section'); // Affiche la section du calendrier
+});
+
 
 document.getElementById('presentation-link').addEventListener('click', function(event) {
     event.preventDefault();

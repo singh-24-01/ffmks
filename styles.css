@@ -376,3 +376,99 @@ iframe {
     font-size: 16px;
     color: #555;
 }
+.dark-mode-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--button-bg-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+body.dark-mode {
+    --main-bg-color: #000000; /* Fond noir */
+    --header-bg-color: #1a1a1a; /* Fond du header en gris foncé */
+    --text-color: #ffffff; /* Texte blanc */
+    --link-color: #90caf9; /* Lien en bleu clair */
+    --link-hover-color: #64b5f6; /* Lien au survol */
+    --button-bg-color: #555555; /* Boutons gris foncé */
+    --button-hover-bg-color: #333333; /* Boutons plus foncés au survol */
+    --footer-bg-color: #1a1a1a; /* Fond du footer */
+}
+
+/* Appliquer les couleurs globalement */
+body.dark-mode, .dark-mode header, .dark-mode footer {
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}
+
+/* Ajuste les liens */
+body.dark-mode a {
+    color: var(--link-color);
+}
+
+body.dark-mode a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Ajuste les sections */
+body.dark-mode section {
+    background-color: #121212; /* Fond des sections en noir profond */
+    color: var(--text-color); /* Texte en blanc */
+    border: 1px solid #333333; /* Bordure discrète */
+}
+
+/* Ajuste les boutons */
+body.dark-mode .button, body.dark-mode .dark-mode-button {
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .button:hover, body.dark-mode .dark-mode-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Ajuste les iframes */
+body.dark-mode iframe {
+    background-color: var(--main-bg-color);
+}
+
+body.dark-mode .mlsd-content,
+body.dark-mode .amsd-content {
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    border: 1px solid #555555; /* Bordure grise pour contraste */
+}
+
+body.dark-mode .terms-content {
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte bleu clair */
+    border: 1px solid #555555; /* Bordure grise */
+}
+
+body.dark-mode .terms-content p strong {
+    color: #87ceeb; /* Garde les termes en bleu clair */
+}
+
+/* Mode sombre spécifique */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.dark-mode a {
+    color: var(--link-color); /* Garder les liens bleus */
+}
+
+body.dark-mode .terms-content strong {
+    color: var(--link-color); /* Conserver le bleu dans les textes importants */
+}

@@ -46,7 +46,6 @@ dropdownBtns.forEach(btn => {
 // Gestion de l'affichage des sections du contenu
 const sections = ['planning-section', 'calendar-section', 'presentation-section', 'mlsd-section', 'amsd-section', 'terms-section', 'plan-section'];
 
-
 function showSection(sectionId) {
     sections.forEach(id => {
         document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
@@ -67,7 +66,6 @@ document.getElementById('calendar-link').addEventListener('click', function(even
     event.preventDefault();
     showSection('calendar-section'); // Affiche la section du calendrier
 });
-
 
 document.getElementById('presentation-link').addEventListener('click', function(event) {
     event.preventDefault();
@@ -108,4 +106,35 @@ function resizePDF(sectionId) {
 // Ajuster automatiquement à l'affichage initial
 document.addEventListener('DOMContentLoaded', () => {
     resizePDF('presentation-section'); // Redimensionne dès que la page charge
+});
+
+// Gestion du mode sombre
+const darkModeButton = document.getElementById('dark-mode-toggle');
+
+// Fonction pour appliquer les styles Dark Mode
+function applyDarkMode() {
+    document.body.classList.add("dark-mode");
+    darkModeButton.innerHTML = "☀️ Mode Clair";
+    localStorage.setItem('darkMode', 'enabled'); // Sauvegarde le choix
+}
+
+// Fonction pour revenir au mode clair
+function removeDarkMode() {
+    document.body.classList.remove("dark-mode");
+    darkModeButton.innerHTML = "🌙 Mode Sombre";
+    localStorage.setItem('darkMode', 'disabled'); // Sauvegarde le choix
+}
+
+// Vérifie si le mode sombre est activé dans le stockage local
+if (localStorage.getItem('darkMode') === 'enabled') {
+    applyDarkMode();
+}
+
+// Basculer le mode sombre
+darkModeButton.addEventListener('click', () => {
+    if (document.body.classList.contains('dark-mode')) {
+        removeDarkMode();
+    } else {
+        applyDarkMode();
+    }
 });

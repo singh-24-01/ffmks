@@ -326,3 +326,27 @@ iframe {
         height: 300px;
     }
 }
+/* Style commun pour les sections MLSD et AMSD */
+.mlsd-content, .amsd-content {
+    padding: 20px;
+    background-color: #fafafa; /* Fond clair similaire */
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 8px; /* Coins arrondis */
+    line-height: 1.6; /* Espacement entre les lignes */
+    margin-bottom: 20px; /* Espacement entre les blocs */
+}
+
+/* Texte plus lisible et hiérarchisé */
+.mlsd-content h2, .amsd-content h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.mlsd-content ul, .amsd-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.mlsd-content li, .amsd-content li {
+    margin-bottom: 10px;
+}

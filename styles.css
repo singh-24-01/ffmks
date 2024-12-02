@@ -1,0 +1,327 @@
+/* Variables de couleurs pour une personnalisation facile */
+:root {
+    --main-bg-color: #ffffff;
+    --header-bg-color: #f2f2f2;
+    --text-color: #333333;
+    --link-color: #0073e6;
+    --link-hover-color: #005bb5;
+    --button-bg-color: #0073e6;
+    --button-hover-bg-color: #005bb5;
+    --footer-bg-color: #f2f2f2;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 80px; /* Pour éviter que le contenu soit caché derrière le header fixe */
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 10px 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: var(--link-hover-color);
+}
+
+.button {
+    color: #ffffff;
+    background-color: var(--button-bg-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.moodle-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.intranet-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+section p, section ul {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+section ul {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+#plan-section img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Styles pour les menus déroulants */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--header-bg-color);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e6e6e6;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--link-hover-color);
+}
+
+/* Style spécifique pour la section des termes statistiques essentiels */
+.terms-content {
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.terms-content p {
+    margin-bottom: 10px;
+}
+
+.terms-content p strong {
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+/* Rendre les images et les iframes responsives */
+section img,
+section iframe,
+section embed {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Menu hamburger */
+.hamburger {
+    display: none;
+}
+
+/* Styles pour les lignes du hamburger */
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+}
+
+/* Animation pour le menu hamburger */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Styles pour le mobile */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .moodle-button,
+    .intranet-button {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--header-bg-color);
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100%;
+        padding-top: 60px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger span {
+        background-color: var(--text-color);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        color: var(--text-color);
+        font-size: 18px;
+    }
+
+    .dropdown-content {
+        position: relative;
+        background-color: var(--header-bg-color);
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        padding: 10px 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown .dropbtn.active + .dropdown-content {
+        display: block;
+    }
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    iframe {
+        height: 300px;
+    }
+}

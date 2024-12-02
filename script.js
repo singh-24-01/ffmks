@@ -65,6 +65,7 @@ document.getElementById('planning-link').addEventListener('click', function(even
 document.getElementById('presentation-link').addEventListener('click', function(event) {
     event.preventDefault();
     showSection('presentation-section');
+    resizePDF('presentation-section'); // Ajustement dynamique pour le PDF
 });
 
 document.getElementById('mlsd-link').addEventListener('click', function(event) {
@@ -85,4 +86,19 @@ document.getElementById('plan-link').addEventListener('click', function(event) {
 document.getElementById('terms-link').addEventListener('click', function(event) {
     event.preventDefault();
     showSection('terms-section');
+});
+
+// Fonction pour redimensionner dynamiquement le PDF
+function resizePDF(sectionId) {
+    const section = document.getElementById(sectionId);
+    const embed = section.querySelector('embed');
+    if (embed) {
+        embed.style.width = '100%';
+        embed.style.height = '90vh'; // Utilise 90% de la hauteur de l'écran
+    }
+}
+
+// Ajuster automatiquement à l'affichage initial
+document.addEventListener('DOMContentLoaded', () => {
+    resizePDF('presentation-section'); // Redimensionne dès que la page charge
 });

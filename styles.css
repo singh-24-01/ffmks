@@ -472,3 +472,7 @@ body.dark-mode a {
 body.dark-mode .terms-content strong {
     color: var(--link-color); /* Conserver le bleu dans les textes importants */
 }
+/* Appliquer un effet visuel sombre pour l'iframe en mode sombre */
+body.dark-mode iframe {
+    filter: invert(1) hue-rotate(180deg); /* Inversion des couleurs pour le mode sombre */
+}

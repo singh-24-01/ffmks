@@ -4,8 +4,61 @@
     <meta charset="UTF-8">
     <title>Master MLSD & AMSD - Université Paris Cité</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles pour la bannière de Noël */
+        .christmas-banner {
+            background-color: #ff3333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour les flocons de neige */
+        .snowflake {
+            position: fixed;
+            top: 0;
+            font-size: 1.5em;
+            color: white;
+            animation: fall linear infinite;
+        }
+        .christmas-tree {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    z-index: 1000; /* S'assure qu'il est au premier plan */
+    width: 120px; /* Taille du sapin */
+    height: 120px;
+    background: url('https://cdn.discordapp.com/attachments/1289984168016744570/1317963232895434892/65388201.png?ex=67609869&is=675f46e9&hm=21cacf09073b9268395dc8a835656c19aaa6032d68984eec321105144294bbfc&') no-repeat center center;
+    background-size: contain;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px red) drop-shadow(0 0 10px yellow);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px green) drop-shadow(0 0 15px blue);
+    }
+}
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+            }
+            100% {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
 </head>
 <body>
+     <!-- Bannière de Noël -->
+     <div class="christmas-banner">
+        <h2>🎄 Joyeuses Fêtes de fin d'année ! 🎅 <span id="countdown" style="font-size: 0.8em; margin-left: 20px; color: white;">🎁 Compte à rebours : <span id="days">0</span> jours, <span id="hours">0</span> heures, <span id="minutes">0</span> minutes, <span id="seconds">0</span> secondes ! 🎁</span></h2>
+    </div>
     <header>
         <h1>Master MLSD & AMSD - Université Paris Cité</h1>
       <button id="dark-mode-toggle" class="dark-mode-button">🌙 Mode Sombre</button>
@@ -381,6 +434,156 @@
     <footer>
         <p>&copy; SINGH 2024 - 2025</p>
     </footer>
+
+    <!-- Guirlandes lumineuses -->
+    <div class="christmas-lights">
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+    </div>
+
+  <!-- Sapin de Noël -->
+  <div class="christmas-tree"></div>
+
+    <!-- Ajout de la musique de Noël -->
+    <audio id="christmas-music" loop autoplay>
+        <source src="christmas-music.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+
+    <!-- Bouton pour activer/désactiver la musique -->
+    <button id="toggle-music" style="position: fixed; bottom: 10px; right: 10px; background-color: #ff3333; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer;">🔈 Activer/Désactiver Musique</button>
+
+    <style>
+        .christmas-lights {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            height: 30px;
+        }
+
+        .light {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: red;
+            border-radius: 50%;
+            box-shadow: 0 0 5px red;
+            animation: blink 1.5s infinite;
+        }
+
+        .light:nth-child(2) {
+            background-color: green;
+            box-shadow: 0 0 5px green;
+            animation-delay: 0.3s;
+        }
+
+        .light:nth-child(3) {
+            background-color: blue;
+            box-shadow: 0 0 5px blue;
+            animation-delay: 0.6s;
+        }
+
+        .light:nth-child(4) {
+            background-color: yellow;
+            box-shadow: 0 0 5px yellow;
+            animation-delay: 0.9s;
+        }
+
+        .light:nth-child(5) {
+            background-color: orange;
+            box-shadow: 0 0 5px orange;
+            animation-delay: 1.2s;
+        }
+
+        .light:nth-child(6) {
+            background-color: purple;
+            box-shadow: 0 0 5px purple;
+            animation-delay: 1.5s;
+        }
+
+        .light:nth-child(7) {
+            background-color: pink;
+            box-shadow: 0 0 5px pink;
+            animation-delay: 1.8s;
+        }
+
+        .light:nth-child(8) {
+            background-color: cyan;
+            box-shadow: 0 0 5px cyan;
+            animation-delay: 2.1s;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+ <!-- Script pour ajouter des flocons de neige -->
+ <script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée entre 2 et 5 secondes
+        snowflake.innerText = '❄️';
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 5000);
+    }
+
+    setInterval(createSnowflake, 300); // Crée un flocon toutes les 300ms
+</script>
+    <script>
+        const music = document.getElementById('christmas-music');
+        const toggleMusicButton = document.getElementById('toggle-music');
+
+        toggleMusicButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                toggleMusicButton.textContent = '🔈 Désactiver Musique';
+            } else {
+                music.pause();
+                toggleMusicButton.textContent = '🔈 Activer Musique';
+            }
+        });
+
+        // Script pour le compte à rebours jusqu'à Noël
+        function updateCountdown() {
+            const now = new Date();
+            const christmas = new Date(now.getFullYear(), 11, 25); // 25 décembre
+            const diff = christmas - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            } else {
+                document.getElementById('countdown').textContent = '🎅 Joyeux Noël ! 🎄';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -58,7 +58,7 @@
 <body>
      <!-- Bannière de Noël -->
      <div class="christmas-banner">
-        <h2>🎄 Joyeuses Fêtes de fin d'année ! 🎅 <span id="countdown" style="font-size: 0.8em; margin-left: 20px; color: white;">🎁 Compte à rebours : <span id="days">0</span> jours, <span id="hours">0</span> heures, <span id="minutes">0</span> minutes, <span id="seconds">0</span> secondes ! 🎁</span></h2>
+        <h2>🎄 Joyeuses Fêtes de fin d'année !  <span id="countdown" style="font-size: 0.8em; margin-left: 20px; color: white;">🎁 Compte à rebours : <span id="days">0</span> jours, <span id="hours">0</span> heures, <span id="minutes">0</span> minutes, <span id="seconds">0</span> secondes ! 🎁</span></h2>
     </div>
     <header>
         <h1>Master MLSD & AMSD - Université Paris Cité</h1>
@@ -561,27 +561,7 @@
             }
         });
 
-        // Script pour le compte à rebours jusqu'à Noël
-        function updateCountdown() {
-            const now = new Date();
-            const christmas = new Date(now.getFullYear(), 11, 25); // 25 décembre
-            const diff = christmas - now;
-
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
-            } else {
-                document.getElementById('countdown').textContent = '🎅 Joyeux Noël ! 🎄';
-            }
-        }
-
+        
         setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
